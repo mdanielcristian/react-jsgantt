@@ -18,6 +18,7 @@ export default class JSGanttComponent extends React.Component<Props> {
   public optionsChanged = false;
 
   componentDidMount() {
+    alert("daniel");
     this.makeChart();
   }
   componentDidUpdate() {

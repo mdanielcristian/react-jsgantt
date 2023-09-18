@@ -5565,6 +5565,7 @@ var JSGanttComponent = /** @class */ (function (_super) {
         return _this;
     }
     JSGanttComponent.prototype.componentDidMount = function () {
+        alert("daniel");
         this.makeChart();
     };
     JSGanttComponent.prototype.componentDidUpdate = function () {
