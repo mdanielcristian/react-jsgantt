@@ -352,14 +352,16 @@ function isParentElementOrSelf(child, parent) {
 }
 exports.isParentElementOrSelf = isParentElementOrSelf;
 exports.updateFlyingObj = function (e, pGanttChartObj, pTimer) {
+    var documentElement = document.documentElement;
+    var bodyElement = document.getElementsByTagName('body')[0];
     var vCurTopBuf = 3;
     var vCurLeftBuf = 5;
     var vCurBotBuf = 3;
     var vCurRightBuf = 15;
     var vMouseX = (e) ? e.clientX : window.event.clientX;
     var vMouseY = (e) ? e.clientY : window.event.clientY;
-    var vViewportX = document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-    var vViewportY = document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+    var vViewportX = (documentElement === null || documentElement === void 0 ? void 0 : documentElement.clientWidth) || (bodyElement === null || bodyElement === void 0 ? void 0 : bodyElement.clientWidth);
+    var vViewportY = (documentElement === null || documentElement === void 0 ? void 0 : documentElement.clientHeight) || (bodyElement === null || bodyElement === void 0 ? void 0 : bodyElement.clientHeight);
     var vNewX = vMouseX;
     var vNewY = vMouseY;
     var screenX = screen.availWidth || window.innerWidth;
@@ -368,8 +370,8 @@ exports.updateFlyingObj = function (e, pGanttChartObj, pTimer) {
     var vOldY = parseInt(pGanttChartObj.vTool.style.top);
     if (navigator.appName.toLowerCase() == 'microsoft internet explorer') {
         // the clientX and clientY properties include the left and top borders of the client area
-        vMouseX -= document.documentElement.clientLeft;
-        vMouseY -= document.documentElement.clientTop;
+        vMouseX -= documentElement === null || documentElement === void 0 ? void 0 : documentElement.clientLeft;
+        vMouseY -= documentElement === null || documentElement === void 0 ? void 0 : documentElement.clientTop;
         var vZoomFactor = exports.getZoomFactor();
         if (vZoomFactor != 1) { // IE 7 at non-default zoom level
             vMouseX = Math.round(vMouseX / vZoomFactor);
@@ -2523,7 +2525,156 @@ var xml_7 = xml.parseXML;
 
 var lang = createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.tr = exports.sv = exports.ru = exports.pt = exports.pl = exports.nl = exports.ko = exports.ja = exports.id = exports.hu = exports.it = exports.fr = exports.fi = exports.de = exports.es = exports.en = exports.cs = exports.cn = void 0;
+exports.ua = exports.tr = exports.sv = exports.ru = exports.pt = exports.pl = exports.nl = exports.ko = exports.ja = exports.id = exports.it = exports.hu = exports.he = exports.fr = exports.fi = exports.de = exports.es = exports.en = exports.cs = exports.cn = exports.scn = exports.ar = void 0;
+var ar = {
+    'format': 'التنسيق',
+    'hour': 'ساعة',
+    'day': 'يوم',
+    'week': 'أسبوع',
+    'month': 'شهر',
+    'quarter': 'ربع',
+    'hours': 'ساعات',
+    'days': 'أيام',
+    'weeks': 'أسابيع',
+    'months': 'أشهر',
+    'quarters': 'أرباع',
+    'hr': 'س',
+    'dy': 'يو',
+    'wk': 'أ',
+    'mth': 'ش',
+    'qtr': 'ر',
+    'hrs': 'س',
+    'dys': 'ي',
+    'wks': 'أ',
+    'mths': 'ش',
+    'qtrs': 'ر',
+    'res': 'الموارد',
+    'dur': 'المدة',
+    'comp': '% الإنجاز',
+    'completion': 'الإنجاز',
+    'startdate': 'تاريخ البدء',
+    'planstartdate': 'تاريخ بدء الخطة',
+    'enddate': 'تاريخ الانتهاء',
+    'planenddate': 'تاريخ نهاية الخطة',
+    'cost': 'التكلفة',
+    'moreinfo': 'مزيد من المعلومات',
+    'nodata': 'لم يتم العثور على مهام',
+    'notes': 'ملاحظات',
+    'january': 'يناير',
+    'february': 'فبراير',
+    'march': 'مارس',
+    'april': 'أبريل',
+    'maylong': 'مايو',
+    'june': 'يونيو',
+    'july': 'يوليو',
+    'august': 'أغسطس',
+    'september': 'سبتمبر',
+    'october': 'أكتوبر',
+    'november': 'نوفمبر',
+    'december': 'ديسمبر',
+    'jan': 'يناير',
+    'feb': 'فبراير',
+    'mar': 'مارس',
+    'apr': 'أبريل',
+    'may': 'مايو',
+    'jun': 'يونيو',
+    'jul': 'يوليو',
+    'aug': 'أغسطس',
+    'sep': 'سبتمبر',
+    'oct': 'أكتوبر',
+    'nov': 'نوفمبر',
+    'dec': 'ديسمبر',
+    'sunday': 'الأحد',
+    'monday': 'الإثنين',
+    'tuesday': 'الثلاثاء',
+    'wednesday': 'الأربعاء',
+    'thursday': 'الخميس',
+    'friday': 'الجمعة',
+    'saturday': 'السبت',
+    'sun': 'الأحد',
+    'mon': 'الإثنين',
+    'tue': 'الثلاثاء',
+    'wed': 'الأربعاء',
+    'thu': 'الخميس',
+    'fri': 'الجمعة',
+    'sat': 'السبت',
+    'tooltipLoading': 'جاري التحميل...'
+};
+exports.ar = ar;
+var scn = {
+    'january': '一月',
+    'february': '二月',
+    'march': '三月',
+    'april': '四月',
+    'maylong': '五月',
+    'june': '六月',
+    'july': '七月',
+    'august': '八月',
+    'september': '九月',
+    'october': '十月',
+    'november': '十一月',
+    'december': '十二月',
+    'jan': '一月',
+    'feb': '二月',
+    'mar': '三月',
+    'apr': '四月',
+    'may': '五月',
+    'jun': '六月',
+    'jul': '七月',
+    'aug': '八月',
+    'sep': '九月',
+    'oct': '十月',
+    'nov': '十一月',
+    'dec': '十二月',
+    'sunday': '星期日',
+    'monday': '星期一',
+    'tuesday': '星期二',
+    'wednesday': '星期三',
+    'thursday': '星期四',
+    'friday': '星期五',
+    'saturday': '星期六',
+    'sun': '星期日',
+    'mon': '星期一',
+    'tue': '星期二',
+    'wed': '星期三',
+    'thu': '星期四',
+    'fri': '星期五',
+    'sat': '星期六',
+    'res': '资源',
+    'dur': '时长',
+    'comp': '完成度',
+    'completion': '完成',
+    'startdate': '起始日期',
+    'planstartdate': '计划起始日期',
+    'enddate': '截止日期',
+    'planenddate': '计划截止日期',
+    'cost': '成本',
+    'moreinfo': "更多信息",
+    'nodata': 'No tasks found',
+    'notes': '备注',
+    'format': '格式',
+    'hour': '时',
+    'day': '日',
+    'week': '星期',
+    'month': '月',
+    'quarter': '季',
+    'hours': '小时',
+    'days': '天',
+    'weeks': '周',
+    'months': '月',
+    'quarters': '季',
+    'hr': '小时',
+    'dy': '天',
+    'wk': '周',
+    'mth': '月',
+    'qtr': '季',
+    'hrs': '小时',
+    'dys': '天',
+    'wks': '周',
+    'mths': '月',
+    'qtrs': '季'
+};
+exports.scn = scn;
 var cn = {
     'january': '一月',
     'february': '二月',
@@ -3045,6 +3196,81 @@ var fr = {
     'qtrs': 'tri'
 };
 exports.fr = fr;
+var he = {
+    'format': 'תבנית',
+    'hour': 'שעה',
+    'day': 'יום',
+    'week': 'שבוע',
+    'month': 'חודש',
+    'quarter': 'רבעון',
+    'hours': 'שעות',
+    'days': 'ימים',
+    'weeks': 'שבועות',
+    'months': 'חודשים',
+    'quarters': 'רבעונים',
+    'hr': 'שעה',
+    'dy': 'יום',
+    'wk': 'שבוע',
+    'mth': 'חודש',
+    'qtr': 'רבעון',
+    'hrs': 'שעות',
+    'dys': 'ימים',
+    'wks': 'שבועות',
+    'mths': 'חודשים',
+    'qtrs': 'רבעונים',
+    'res': 'משאב',
+    'dur': 'משך',
+    'comp': '% השלמה',
+    'completion': 'השלמה',
+    'startdate': 'תאריך התחלה',
+    'planstartdate': 'תאריך התחלה מתוכנן',
+    'enddate': 'תאריך סיום',
+    'planenddate': 'תאריך סיום מתוכנן',
+    'cost': 'עלות',
+    'moreinfo': 'מידע נוסף',
+    'nodata': 'לא נמצאו משימות',
+    'notes': 'הערות',
+    'january': 'ינואר',
+    'february': 'פברואר',
+    'march': 'מרץ',
+    'april': 'אפריל',
+    'maylong': 'מאי',
+    'june': 'יוני',
+    'july': 'יולי',
+    'august': 'אוגוסט',
+    'september': 'ספטמבר',
+    'october': 'אוקטובר',
+    'november': 'נובמבר',
+    'december': 'דצמבר',
+    'jan': 'ינו',
+    'feb': 'פבר',
+    'mar': 'מרץ',
+    'apr': 'אפר',
+    'may': 'מאי',
+    'jun': 'יוני',
+    'jul': 'יולי',
+    'aug': 'אוג',
+    'sep': 'ספט',
+    'oct': 'אוק',
+    'nov': 'נוב',
+    'dec': 'דצמ',
+    'sunday': 'יום ראשון',
+    'monday': 'יום שני',
+    'tuesday': 'יום שלישי',
+    'wednesday': 'יום רביעי',
+    'thursday': 'الخميس',
+    'friday': 'الجمعة',
+    'saturday': 'السبت',
+    'sun': 'الأحد',
+    'mon': 'الإثنين',
+    'tue': 'الثلاثاء',
+    'wed': 'الأربعاء',
+    'thu': 'الخميس',
+    'fri': 'الجمعة',
+    'sat': 'السبت',
+    'tooltipLoading': 'جارٍ التحميل...'
+};
+exports.he = he;
 var it = {
     'format': 'Formato',
     'hour': 'Ora',
@@ -3451,7 +3677,7 @@ var nl = {
     'planenddate': 'Geplande einddatum',
     'cost': 'Kosten',
     'moreinfo': 'Meer informatie',
-    'nodata': 'No tasks found',
+    'nodata': 'Geen taken gevonden',
     'notes': 'Notities',
     'january': 'januari',
     'february': 'februari',
@@ -3857,28 +4083,107 @@ var tr = {
     'sat': 'Cmt'
 };
 exports.tr = tr;
+var ua = {
+    'january': 'Січень',
+    'february': 'Лютий',
+    'march': 'Березень',
+    'april': 'Квітень',
+    'maylong': 'Травень',
+    'june': 'Червень',
+    'july': 'Липень',
+    'august': 'Серпень',
+    'september': 'Вересень',
+    'october': 'Жовтень',
+    'november': 'Листопад',
+    'december': 'Грудень',
+    'jan': 'Січ',
+    'feb': 'Лют',
+    'mar': 'Бер',
+    'apr': 'Кві',
+    'may': 'Тра',
+    'jun': 'Чер',
+    'jul': 'Лип',
+    'aug': 'Сер',
+    'sep': 'Вер',
+    'oct': 'Жов',
+    'nov': 'Лис',
+    'dec': 'Гру',
+    'sunday': 'Неділя',
+    'monday': 'Понеділок',
+    'tuesday': 'Вівторок',
+    'wednesday': 'Середа',
+    'thursday': 'Четвер',
+    'friday': 'П\'ятниця',
+    'saturday': 'Субота',
+    'sun': ' Нд',
+    'mon': 'Пн',
+    'tue': ' Вт',
+    'wed': 'Ср',
+    'thu': ' Чт',
+    'fri': ' Пт',
+    'sat': ' Сб',
+    'res': 'Ресурс',
+    'dur': 'Тривалість',
+    'comp': '% виконання',
+    'completion': 'Виконано',
+    'startdate': 'Поч. дата',
+    'planstartdate': 'План Поч. дата',
+    'enddate': 'Кін. дата',
+    'planenddate': 'План Кін. дата',
+    'cost': 'Вартість',
+    'moreinfo': 'Деталі',
+    'nodata': 'Нічого не знайдено',
+    'notes': 'Нотатки',
+    'format': 'Формат',
+    'hour': 'Година',
+    'day': 'День',
+    'week': 'Неділя',
+    'month': 'Місяць',
+    'quarter': 'Кварт',
+    'hours': 'Годин',
+    'days': 'Днів',
+    'weeks': 'Тижнів',
+    'months': 'Місяців',
+    'quarters': 'Кварталів',
+    'hr': 'г.',
+    'dy': 'дн.',
+    'wk': 'тиж.',
+    'mth': 'міс.',
+    'qtr': 'кв.',
+    'hrs': 'г.',
+    'dys': 'дн.',
+    'wks': 'тиж.',
+    'mths': 'міс.',
+    'qtrs': 'кв.',
+    'tooltipLoading': 'Загрузка...'
+};
+exports.ua = ua;
 
 });
 
 unwrapExports(lang);
-var lang_1 = lang.tr;
-var lang_2 = lang.sv;
-var lang_3 = lang.ru;
-var lang_4 = lang.pt;
-var lang_5 = lang.pl;
-var lang_6 = lang.nl;
-var lang_7 = lang.ko;
-var lang_8 = lang.ja;
-var lang_9 = lang.id;
-var lang_10 = lang.hu;
+var lang_1 = lang.ua;
+var lang_2 = lang.tr;
+var lang_3 = lang.sv;
+var lang_4 = lang.ru;
+var lang_5 = lang.pt;
+var lang_6 = lang.pl;
+var lang_7 = lang.nl;
+var lang_8 = lang.ko;
+var lang_9 = lang.ja;
+var lang_10 = lang.id;
 var lang_11 = lang.it;
-var lang_12 = lang.fr;
-var lang_13 = lang.fi;
-var lang_14 = lang.de;
-var lang_15 = lang.es;
-var lang_16 = lang.en;
-var lang_17 = lang.cs;
-var lang_18 = lang.cn;
+var lang_12 = lang.hu;
+var lang_13 = lang.he;
+var lang_14 = lang.fr;
+var lang_15 = lang.fi;
+var lang_16 = lang.de;
+var lang_17 = lang.es;
+var lang_18 = lang.en;
+var lang_19 = lang.cs;
+var lang_20 = lang.cn;
+var lang_21 = lang.scn;
+var lang_22 = lang.ar;
 
 var draw_columns = createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -4284,6 +4589,12 @@ exports.includeGetSet = function () {
             this.vLangs[pLang] = new Object();
             for (var vKey in this.vLangs['en'])
                 this.vLangs[pLang][vKey] = (pVals[vKey]) ? document.createTextNode(pVals[vKey]).data : this.vLangs['en'][vKey];
+        }
+    };
+    this.setCustomLang = function (pVals) {
+        this.vLangs[this.vLang] = new Object();
+        for (var vKey in this.vLangs['en']) {
+            this.vLangs[this.vLang][vKey] = (pVals[vKey]) ? document.createTextNode(pVals[vKey]).data : this.vLangs['en'][vKey];
         }
     };
     this.setTotalHeight = function (pVal) { this.vTotalHeight = pVal; };
@@ -5557,7 +5868,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = "/* add css styles here (optional) */\n {\n  /* Sample CSS for jsGanttImproved v1.8.0 */\n  /* cell defaults */\n  /* all three width values set just to make sure - helps resizing code */\n  /* Additional values for some cell elements */\n  /* Task list defaults */\n  /* Additional values for some task list elements */\n  /* needed for IE8 */\n  /* for some reason firefox needs this */\n  /* Differentiate Group, Milestone and Ordinary task items (applied to row) */\n  /* highlight row (applied to row) */\n  /* task bar caption text styles */\n  /* Task complete %age bar shared attributes */\n  /* Task complete %age bar */\n  /* Milestones */\n  /* Task bar shared attributes */\n  /* Task bars - ggroupblack is set as the default class on the task if it is undefined */\n  /*  END Task bar styles */\n  /* Add a max-height value here if wanted */\n  /* Old Internet Explorer version hacks */\n  /* otherwise the chart disappears! */\n  /* ie6 fixed width */\n  /* variable height design, no need for vertical scroll */\n  /* stops resizing fixed width columns if the text is too wide */\n  /* stops resizing fixed width columns if the text is too wide */\n  /* border transparency tricks */\n  /* Workaround for odd bug in old versions of Opera - no other browser needs this */\n  /* if using setUseSingleCell(1) the following is a suggested set of CSS3 styles to recreate the table grid - won't work on old browsers\r\n.ggrouphour td,\r\n.gmilehour td,\r\n.gitemhour td\t\t\t{ background-size: 19px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 18px); width: 100%; height: 19px; }\r\n.ggroupday td,\r\n.gmileday td,\r\n.gitemday td\t\t\t{ background-size: 19px 1px, 133px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 18px), linear-gradient(to left, #f7f7f7 39px, transparent 1px, transparent 92px); width: 100%; height: 19px; }\r\n.ggroupweek td,\r\n.gmileweek td,\r\n.gitemweek td\t\t\t{ background-size: 37px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 36px); width: 100%; height: 19px; }\r\n.ggroupmonth td,\r\n.gmilemonth td,\r\n.gitemmonth td\t\t\t{ background-size: 37px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 36px); width: 100%; height: 19px; }\r\n.ggroupquarter td,\r\n.gmilequarter td,\r\n.gitemquarter td\t\t{ background-size: 19px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 18px); width: 100%; height: 19px; }\r\n*/\n  /* .gtasktable {\r\n  margin-bottom: 14px;\r\n} */\n  /* Printer friendly styles - we could use these all the time but they are not as pretty! */\n  /* note that \"@media print\" is not supported in IE6 or 7.  Fully patched IE8 should be OK */\n  /* Fix for OSx trackpad hiding the scroll bars*/ }\n  div.gantt {\n    font-family: tahoma, arial, verdana, Sans-serif;\n    font-size: 12px;\n    color: #656565; }\n  .gantt table {\n    border-collapse: collapse; }\n  .gantt td {\n    padding: 0px; }\n  .headweekends div {\n    font-size: 8px;\n    width: 100% !important;\n    margin: 0; }\n  .gmajorheading,\n  .gminorheading,\n  .gminorheadingwkend,\n  .gtaskcell,\n  .gtaskcellcurrent,\n  .gtaskcellwkend {\n    height: 19px;\n    font-size: 12px;\n    border: #efefef 1px solid;\n    text-align: center;\n    cursor: default; }\n  .gtasklist {\n    height: 19px;\n    min-width: 5px;\n    max-width: 5px;\n    width: 5px;\n    border: #efefef 1px solid;\n    border-right: none; }\n  .gtasknolist-label {\n    padding: 10px 50px; }\n  .gtaskheading,\n  .gmajorheading,\n  .gminorheading {\n    background-color: #ffffff;\n    font-weight: bold;\n    font-size: 11px;\n    white-space: nowrap; }\n  .gtaskcellwkend,\n  .gtaskcellcurrent,\n  .gminorheadingwkend {\n    background-color: #f7f7f7;\n    font-weight: bold;\n    font-size: 9px;\n    white-space: nowrap; }\n  .gtaskcellcurrent {\n    background-color: #e1e0f7; }\n  td.gtaskcell {\n    text-align: left; }\n  td.gspanning {\n    border-left: none;\n    border-right: none; }\n  .gtaskcelldiv {\n    position: relative; }\n  .gtaskheading,\n  .gname,\n  .gtaskname,\n  .gres,\n  .gdur,\n  .gcomp,\n  .gstartdate,\n  .gplanstartdate,\n  .gplanenddate,\n  .gcost,\n  .genddate {\n    height: 18px;\n    white-space: nowrap;\n    border: #efefef 1px solid; }\n  .gtaskheading div,\n  .gname div,\n  .gtaskname div,\n  .gres div,\n  .gdur div,\n  .gcomp div,\n  .gstartdate div,\n  .gplanstartdate div,\n  .gplanenddate div,\n  .gcost div,\n  .genddate div {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .gtaskbarcontainer.gplan {\n    position: absolute !important;\n    top: 0px;\n    opacity: 0.3;\n    background: white;\n    z-index: 10000;\n    border: 1px solid black; }\n  .gstartdate div,\n  .gplanstartdate,\n  .gplanenddate,\n  .gstartdate,\n  .genddate {\n    text-align: center;\n    min-width: 105px;\n    width: 105px;\n    max-width: 105px;\n    font-size: 10px; }\n  .gtaskheading {\n    text-align: center; }\n  .gtaskname div,\n  .gtaskname {\n    min-width: 170px;\n    max-width: 220px;\n    width: 220px;\n    font-size: 12px;\n    border-left: none; }\n  .gtaskheading,\n  .gtaskname {\n    text-overflow: ellipsis;\n    overflow: hidden; }\n  .gtaskname.gtaskeditable div,\n  .gtaskname.gtaskeditable {\n    overflow: unset; }\n  .gselector {\n    text-align: left;\n    white-space: nowrap;\n    min-width: 170px;\n    max-width: 170px;\n    width: 170px; }\n  .gformlabel {\n    position: relative;\n    top: 0px;\n    cursor: pointer;\n    border: #ffffff 1px solid;\n    margin-left: 2px;\n    padding-left: 2px;\n    padding-right: 2px; }\n  span.gformlabel:hover,\n  span.gselected {\n    background-color: #dbecff;\n    border: #cccccc 1px solid; }\n  span.gfoldercollapse {\n    color: #000000;\n    cursor: pointer;\n    font-weight: bold;\n    font-size: 12px;\n    font-family: Courier, \"Courier New\", monospace; }\n  .gtasktableh,\n  .gtasktable {\n    border-right: #efefef 1px solid;\n    width: 100%; }\n  .gcharttableh,\n  .gtasktableh,\n  .gtasktable,\n  .gcharttable {\n    border-collapse: collapse; }\n  .gcharttable,\n  .gcharttableh {\n    table-layout: fixed; }\n  .gcharttable {\n    border: #efefef 1px solid; }\n  .ggroupitem {\n    background-color: #fbfbfb;\n    font-weight: bold; }\n  .gmileitem,\n  .glineitem {\n    background-color: #ffffff; }\n  .gitemhighlight td {\n    background-image: none;\n    background-color: #fffde5; }\n  .gitemdifferent td {\n    background-image: none;\n    background-color: rgba(0, 0, 0, 0.05); }\n  .gmilecaption,\n  .ggroupcaption,\n  .gcaption {\n    font-weight: normal;\n    font-size: 9px;\n    text-align: left;\n    white-space: nowrap;\n    top: 1px;\n    position: absolute;\n    top: 2px; }\n  .ggroupcaption,\n  .gcaption {\n    right: -126px; }\n  .gtaskcomplete {\n    float: left;\n    overflow: hidden; }\n  .gtaskcomplete {\n    height: 5px;\n    background-color: #000000;\n    margin-top: 4px;\n    opacity: 0.4;\n    filter: alpha(opacity=40); }\n  .gmilestone {\n    font-size: 14px;\n    position: absolute;\n    top: -2px; }\n  .gmdtop {\n    top: 2px;\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    border-bottom: 5px solid black;\n    border-left: 5px solid transparent;\n    border-top: 5px solid transparent;\n    border-right: 5px solid transparent; }\n  .gmdbottom {\n    top: 2px;\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    border-top: 5px solid black;\n    border-left: 5px solid transparent;\n    border-bottom: 5px solid transparent;\n    border-right: 5px solid transparent; }\n  .ggroupblack,\n  .gtaskblue,\n  .gtaskred,\n  .gtaskgreen,\n  .gtaskyellow,\n  .gtaskpurple,\n  .gtaskpink {\n    height: 13px;\n    filter: alpha(opacity=90);\n    opacity: 0.9;\n    margin-top: 1px; }\n  .ggroupblack {\n    height: 7px;\n    background: #000000;\n    margin-top: 2px; }\n  .ggroupblackendpointleft {\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    top: 2px;\n    border-top: 4px solid black;\n    border-left: 4px solid transparent;\n    border-bottom: 4px solid transparent;\n    border-right: 4px solid transparent;\n    float: left; }\n  .ggroupblackendpointright {\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    top: 2px;\n    border-top: 4px solid black;\n    border-left: 4px solid transparent;\n    border-bottom: 4px solid transparent;\n    border-right: 4px solid transparent;\n    float: right; }\n  .ggroupblackcomplete {\n    float: left;\n    overflow: hidden;\n    height: 3px;\n    filter: alpha(opacity=80);\n    opacity: 0.8;\n    background-color: #777777;\n    margin-top: 2px;\n    margin-bottom: 2px; }\n  .gtaskblue {\n    background: #3a84c3;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #3a84c3 0%, #419ad6 20%, #4bb8f0 40%, #3a8bc2 70%, #26558b 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4bb8f0', endColorstr='#3a84c3', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskred {\n    background: #c43a3a;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #c43a3a 0%, #d34141 20%, #ef4c4c 40%, #c43a3a 70%, #872525 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ef4c4c', endColorstr='#c43a3a', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskgreen {\n    background: #50c13a;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #50c13a 0%, #58d140 20%, #66ed4b 40%, #50c13a 70%, #358425 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66ED4B', endColorstr='#50c13a', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskyellow {\n    background: #f7e438;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #f7e438 0%, #efef37 20%, #ffff3a 40%, #f2ec37 70%, #f1da36 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff3a', endColorstr='#f7e438', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskpurple {\n    background: #c13ac1;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #c13ac1 0%, #d341d3 20%, #ef4cef 40%, #c13ac1 70%, #892689 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ef4cef', endColorstr='#892689', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskpink {\n    background: #f9b1f5;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #f9b1f5 0%, #f7c0f3 20%, #f7caf4 40%, #f9c0f6 70%, #fcaef7 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7caf4', endColorstr='#fcaef7', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskbluecomplete,\n  .gtaskredcomplete,\n  .gtaskgreencomplete,\n  .gtaskyellowcomplete,\n  .gtaskpurplecomplete,\n  .gtaskpinkcomplete {\n    float: left;\n    overflow: hidden;\n    height: 5px;\n    filter: alpha(opacity=40);\n    opacity: 0.4;\n    background-color: #000000;\n    margin-top: 4px; }\n  .glinev {\n    border-left: 1px solid;\n    width: 0px; }\n  .glineh {\n    border-top: 1px solid;\n    height: 0px; }\n  .gDepFS,\n  .gDepSS,\n  .gDepSF,\n  .gDepFF {\n    border-color: #ff0000; }\n  .gDepFSArw,\n  .gDepSSArw {\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    border-bottom: 4px solid transparent;\n    border-left: 4px solid #ff0000;\n    border-top: 4px solid transparent;\n    border-right: 4px solid transparent; }\n  .gDepFFArw,\n  .gDepSFArw {\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    border-bottom: 4px solid transparent;\n    border-left: 4px solid transparent;\n    border-top: 4px solid transparent;\n    border-right: 4px solid #ff0000; }\n  .gCurDate {\n    border-color: #0000ff; }\n  div.gtaskbarcontainer {\n    z-index: 1;\n    position: absolute;\n    top: 0px; }\n  .textbar {\n    word-break: break-all;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    width: 40%;\n    display: inline-block; }\n  .JSGanttToolTip {\n    position: absolute;\n    display: block;\n    z-index: 10000; }\n  .JSGanttToolTipcont {\n    font-family: tahoma, arial, verdana;\n    font-size: 10px;\n    display: block;\n    background: #ffffff;\n    color: #656565; }\n  .gTaskInfo {\n    background: #dbecff;\n    width: 400px;\n    border: #656565 1px solid;\n    border-radius: 10px;\n    padding: 4px 6px 4px 6px;\n    float: left; }\n  .gTtTitle {\n    display: block;\n    font-size: 12px;\n    font-weight: bold;\n    color: #404040;\n    margin-left: 4px;\n    margin-bottom: 1em; }\n  .gTaskLabel {\n    font-size: 11px;\n    font-weight: bold;\n    color: #656565;\n    margin-left: 4px; }\n  .gTaskText {\n    position: absolute;\n    left: 90px;\n    padding-top: 1px;\n    font-size: 10px;\n    font-weight: normal;\n    color: #656565; }\n  .gTaskNotes {\n    font-size: 11px;\n    font-weight: normal;\n    color: #323232;\n    padding: 0 15px;\n    display: block; }\n  .gTIn {\n    padding-top: 10px; }\n  .gantt {\n    min-width: 632px;\n    /* 2x LC width */ }\n  .gchartcontainer {\n    /* padding-left: 532px; LC width */\n    line-height: 1;\n    /* Overrides inherited CSS (e.g. from Bootstrap) */\n    display: flex; }\n  .gcontainercol {\n    position: relative; }\n  .glistgrid {\n    min-width: 132px;\n    /* LC width */\n    float: left;\n    /* LC width */\n    padding-right: 0px;\n    padding-left: 0px;\n    padding-bottom: 0px;\n    padding-top: 0px;\n    background-color: #ffffff;\n    overflow: hidden; }\n  .glistlbl {\n    min-width: 132px;\n    /* LC width */\n    float: left;\n    /* LC width */\n    padding-right: 0px;\n    padding-left: 0px;\n    padding-bottom: 0px;\n    padding-top: 0px;\n    background-color: #ffffff;\n    overflow: hidden;\n    flex: none; }\n  .glistlbl,\n  .gchartgrid {\n    display: flex;\n    flex-direction: column; }\n  .glabelfooter {\n    clear: both; }\n  .ggridfooter {\n    clear: both; }\n  .rhscrpad {\n    width: 150px;\n    position: absolute;\n    top: 0px;\n    height: 1px; }\n  .gchartgrid {\n    padding-right: 0px;\n    padding-left: 0px;\n    padding-bottom: 0px;\n    padding-top: 0px;\n    background-color: #ffffff;\n    position: relative;\n    /* overflow: auto; */\n    overflow: unset;\n    overflow-y: auto;\n    min-height: 0%; }\n  .gchartlbl {\n    padding-right: 0px;\n    padding-left: 0px;\n    padding-bottom: 0px;\n    padding-top: 0px;\n    background-color: #ffffff;\n    position: relative;\n    overflow: hidden;\n    flex: none; }\n  .gantt {\n    _height: 100%; }\n  div .gantt {\n    /* _width: 1064px; ie6 fixed width */ }\n  div.gchartlbl,\n  div.gchartgrid {\n    /* _width: 532px; */ }\n  div.glistlbl,\n  div.glistgrid {\n    *right: 0px;\n    /* ie7 pulls the content too far left with the negative margin */\n    _right: 532px;\n    /* but ie6 fixed width needs this */\n    _margin-left: -532px;\n    /* ie6 fixed width */\n    float: left; }\n  div.gchartgrid {\n    *padding-bottom: 20px;\n    *overflow-y: hidden; }\n  td.gmajorheading div {\n    *overflow: hidden; }\n  td.gspanning div {\n    *overflow: hidden; }\n  .ggroupblackendpointleft {\n    _border-top: 4px solid black;\n    _border-left: 4px solid pink;\n    _border-bottom: 4px solid pink;\n    _border-right: 4px solid pink;\n    _filter: chroma(color=pink); }\n  .ggroupblackendpointright {\n    _border-top: 4px solid black;\n    _border-left: 4px solid pink;\n    _border-bottom: 4px solid pink;\n    _border-right: 4px solid pink;\n    _filter: chroma(color=pink); }\n  .gmdtop {\n    _border-left: 5px solid pink;\n    _border-top: 5px solid pink;\n    _border-right: 5px solid pink;\n    _filter: chroma(color=pink); }\n  .gmdbottom {\n    _border-left: 5px solid pink;\n    _border-bottom: 5px solid pink;\n    _border-right: 5px solid pink;\n    _filter: chroma(color=pink); }\n  .gDepFSArw,\n  .gDepSSArw {\n    _border-bottom: 4px solid pink;\n    _border-top: 4px solid pink;\n    _border-right: 4px solid pink;\n    _filter: chroma(color=pink); }\n  .gDepFFArw,\n  .gDepSFArw {\n    _border-bottom: 4px solid pink;\n    _border-left: 4px solid pink;\n    _border-top: 4px solid pink;\n    _filter: chroma(color=pink); }\n  .glinediv {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    z-index: 1px; }\n  .gantt-inputtable {\n    max-width: 100%;\n    max-height: 16px; }\n  .gadditional {\n    border: #efefef 1px solid; }\n  .gadditional,\n  .gres,\n  .gdur,\n  .gcomp,\n  .gcost {\n    text-align: center;\n    width: 70px;\n    max-width: 70px;\n    min-width: 70px;\n    font-size: 10px; }\n  @media print {\n     {\n      /* All your print styles go here */\n      /* Hide scrollbar for Chrome, Safari and Opera */\n      /* Hide scrollbar for IE, Edge and Firefox */\n      /* Hide tool-tip */\n      /* This is the default css, injected by the JSGantt.printChart(width,height); function -->\r\n  @page {\r\n    size: ${width}mm ${height}mm;\r\n  }\r\n\r\n  .gchartcontainer {\r\n    width: ${width}mm;\r\n  }\r\n  <-- This will be injected by the JSGantt.printChart() function */ }\n      html,\n      .gchartgrid {\n        overflow: unset !important; }\n      .glistgrid {\n        float: none !important; }\n      .gchartcontainer *::-webkit-scrollbar {\n        display: none; }\n      .gchartcontainer * {\n        -ms-overflow-style: none;\n        /* IE and Edge */\n        scrollbar-width: none;\n        /* Firefox */ }\n      .JSGanttToolTip {\n        display: none !important; } }\n  .gmain {\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n    /* Allow resize */\n    resize: horizontal; }\n  .gmainright {\n    overflow: hidden;\n    flex: 1 1 auto; }\n  .gmainleft {\n    overflow: hidden;\n    flex: 0 0 20%;\n    min-width: 220px;\n    /* Allow side to grow and shrink */\n    flex: 1 0 auto; }\n  .gtasktableh tr,\n  .gcharttable tr,\n  .gcharttableh tr,\n  .gtasktable tr {\n    height: 22px !important; }\n  .gtasktableouterwrapper {\n    overflow: hidden; }\n  .gtasktablewrapper {\n    overflow-y: scroll;\n    flex: auto;\n    height: 100%; }\n  .chartgrid {\n    overflow: auto;\n    flex: auto; }\n  @media print {\n    .ggroupblack {\n      height: 0px;\n      border-top: 7px solid;\n      border-color: #000000; }\n    .gtaskblue {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #3a84c3; }\n    .gtaskred {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #c43a3a; }\n    .gtaskgreen {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #50c13a; }\n    .gtaskyellow {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #f7e438; }\n    .gtaskpurple {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #c13ac1; }\n    .gtaskpink {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #f9b1f5; }\n    .gtaskbluecomplete,\n    .gtaskredcomplete,\n    .gtaskgreencomplete,\n    .gtaskyellowcomplete,\n    .gtaskpurplecomplete,\n    .gtaskpinkcomplete {\n      height: 0px;\n      filter: alpha(opacity=40);\n      opacity: 0.4;\n      margin-top: -9px;\n      border-top: 5px solid;\n      border-color: #000000; }\n    .ggroupblackcomplete {\n      height: 0px;\n      filter: alpha(opacity=80);\n      opacity: 0.8;\n      margin-top: -5px;\n      border-top: 3px solid;\n      border-color: #777777; }\n    .gmainright,\n    .gmainleft {\n      overflow: hidden;\n      width: auto; }\n    table {\n      page-break-after: auto; }\n    tr {\n      page-break-inside: avoid;\n      page-break-after: auto; }\n    td {\n      page-break-inside: avoid;\n      page-break-after: auto; }\n    thead {\n      display: table-header-group; }\n    tfoot {\n      display: table-footer-group; } }\n  .frame::-webkit-scrollbar {\n    -webkit-appearance: none; }\n  .frame::-webkit-scrollbar:vertical {\n    width: 11px; }\n  .frame::-webkit-scrollbar:horizontal {\n    height: 11px; }\n  .frame::-webkit-scrollbar-thumb {\n    border-radius: 8px;\n    border: 2px solid white;\n    /* should match background, can't be transparent */\n    background-color: rgba(0, 0, 0, 0.5); }\n  .frame::-webkit-scrollbar-track {\n    background-color: #fff;\n    border-radius: 8px; }\n  .gscrollbar-calculation-container {\n    visibility: hidden;\n    overflow: scroll;\n    -ms-overflow-style: scrollbar;\n    display: block; }\n\n.styles_test__3MEaA {\n  display: inline-block;\n  margin: 2em auto;\n  border: 2px solid #000;\n  font-size: 2em; }\n";
+var css = "/* add css styles here (optional) */\n {\n  /* Sample CSS for jsGanttImproved v1.8.0 */\n  /* cell defaults */\n  /* all three width values set just to make sure - helps resizing code */\n  /* Additional values for some cell elements */\n  /* Task list defaults */\n  /* Additional values for some task list elements */\n  /* needed for IE8 */\n  /* for some reason firefox needs this */\n  /* Differentiate Group, Milestone and Ordinary task items (applied to row) */\n  /* highlight row (applied to row) */\n  /* task bar caption text styles */\n  /* Task complete %age bar shared attributes */\n  /* Task complete %age bar */\n  /* Milestones */\n  /* Task bar shared attributes */\n  /* Task bars - ggroupblack is set as the default class on the task if it is undefined */\n  /*  END Task bar styles */\n  /* Add a max-height value here if wanted */\n  /* Old Internet Explorer version hacks */\n  /* otherwise the chart disappears! */\n  /* ie6 fixed width */\n  /* variable height design, no need for vertical scroll */\n  /* stops resizing fixed width columns if the text is too wide */\n  /* stops resizing fixed width columns if the text is too wide */\n  /* border transparency tricks */\n  /* Workaround for odd bug in old versions of Opera - no other browser needs this */\n  /* if using setUseSingleCell(1) the following is a suggested set of CSS3 styles to recreate the table grid - won't work on old browsers\n.ggrouphour td,\n.gmilehour td,\n.gitemhour td\t\t\t{ background-size: 19px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 18px); width: 100%; height: 19px; }\n.ggroupday td,\n.gmileday td,\n.gitemday td\t\t\t{ background-size: 19px 1px, 133px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 18px), linear-gradient(to left, #f7f7f7 39px, transparent 1px, transparent 92px); width: 100%; height: 19px; }\n.ggroupweek td,\n.gmileweek td,\n.gitemweek td\t\t\t{ background-size: 37px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 36px); width: 100%; height: 19px; }\n.ggroupmonth td,\n.gmilemonth td,\n.gitemmonth td\t\t\t{ background-size: 37px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 36px); width: 100%; height: 19px; }\n.ggroupquarter td,\n.gmilequarter td,\n.gitemquarter td\t\t{ background-size: 19px 1px; background-image: linear-gradient(to left, #efefef, transparent 1px, transparent 18px); width: 100%; height: 19px; }\n*/\n  /* .gtasktable {\n  margin-bottom: 14px;\n} */\n  /* Printer friendly styles - we could use these all the time but they are not as pretty! */\n  /* note that \"@media print\" is not supported in IE6 or 7.  Fully patched IE8 should be OK */\n  /* Fix for OSx trackpad hiding the scroll bars*/ }\n  div.gantt {\n    font-family: tahoma, arial, verdana, Sans-serif;\n    font-size: 12px;\n    color: #656565; }\n  .gantt table {\n    border-collapse: collapse; }\n  .gantt td {\n    padding: 0px; }\n  .headweekends div {\n    font-size: 8px;\n    width: 100% !important;\n    margin: 0; }\n  .gmajorheading,\n  .gminorheading,\n  .gminorheadingwkend,\n  .gtaskcell,\n  .gtaskcellcurrent,\n  .gtaskcellwkend {\n    height: 19px;\n    font-size: 12px;\n    border: #efefef 1px solid;\n    text-align: center;\n    cursor: default; }\n  .gtasklist {\n    height: 19px;\n    min-width: 5px;\n    max-width: 5px;\n    width: 5px;\n    border: #efefef 1px solid;\n    border-right: none; }\n  .gtasknolist-label {\n    padding: 10px 50px; }\n  .gtaskheading,\n  .gmajorheading,\n  .gminorheading {\n    background-color: #ffffff;\n    font-weight: bold;\n    font-size: 11px;\n    white-space: nowrap; }\n  .gtaskcellwkend,\n  .gtaskcellcurrent,\n  .gminorheadingwkend {\n    background-color: #f7f7f7;\n    font-weight: bold;\n    font-size: 9px;\n    white-space: nowrap; }\n  .gtaskcellcurrent {\n    background-color: #e1e0f7; }\n  td.gtaskcell {\n    text-align: left; }\n  td.gspanning {\n    border-left: none;\n    border-right: none; }\n  .gtaskcelldiv {\n    position: relative; }\n  .gtaskheading,\n  .gname,\n  .gtaskname,\n  .gres,\n  .gdur,\n  .gcomp,\n  .gstartdate,\n  .gplanstartdate,\n  .gplanenddate,\n  .gcost,\n  .genddate {\n    height: 18px;\n    white-space: nowrap;\n    border: #efefef 1px solid; }\n  .gtaskheading div,\n  .gname div,\n  .gtaskname div,\n  .gres div,\n  .gdur div,\n  .gcomp div,\n  .gstartdate div,\n  .gplanstartdate div,\n  .gplanenddate div,\n  .gcost div,\n  .genddate div {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .gtaskbarcontainer.gplan {\n    position: absolute !important;\n    top: 0px;\n    opacity: 0.3;\n    background: white;\n    z-index: 10000;\n    border: 1px solid black; }\n  .gstartdate div,\n  .gplanstartdate,\n  .gplanenddate,\n  .gstartdate,\n  .genddate {\n    text-align: center;\n    min-width: 105px;\n    width: 105px;\n    max-width: 105px;\n    font-size: 10px; }\n  .gtaskheading {\n    text-align: center; }\n  .gtaskname div,\n  .gtaskname {\n    min-width: 170px;\n    max-width: 220px;\n    width: 220px;\n    font-size: 12px;\n    border-left: none; }\n  .gtaskheading,\n  .gtaskname {\n    text-overflow: ellipsis;\n    overflow: hidden; }\n  .gtaskname.gtaskeditable div,\n  .gtaskname.gtaskeditable {\n    overflow: unset; }\n  .gselector {\n    text-align: left;\n    white-space: nowrap;\n    min-width: 170px;\n    max-width: 170px;\n    width: 170px; }\n  .gformlabel {\n    position: relative;\n    top: 0px;\n    cursor: pointer;\n    border: #ffffff 1px solid;\n    margin-left: 2px;\n    padding-left: 2px;\n    padding-right: 2px; }\n  span.gformlabel:hover,\n  span.gselected {\n    background-color: #dbecff;\n    border: #cccccc 1px solid; }\n  span.gfoldercollapse {\n    color: #000000;\n    cursor: pointer;\n    font-weight: bold;\n    font-size: 12px;\n    font-family: Courier, \"Courier New\", monospace; }\n  .gtasktableh,\n  .gtasktable {\n    border-right: #efefef 1px solid;\n    width: 100%; }\n  .gcharttableh,\n  .gtasktableh,\n  .gtasktable,\n  .gcharttable {\n    border-collapse: collapse; }\n  .gcharttable,\n  .gcharttableh {\n    table-layout: fixed; }\n  .gcharttable {\n    border: #efefef 1px solid; }\n  .ggroupitem {\n    background-color: #fbfbfb;\n    font-weight: bold; }\n  .gmileitem,\n  .glineitem {\n    background-color: #ffffff; }\n  .gitemhighlight td {\n    background-image: none;\n    background-color: #fffde5; }\n  .gitemdifferent td {\n    background-image: none;\n    background-color: rgba(0, 0, 0, 0.05); }\n  .gmilecaption,\n  .ggroupcaption,\n  .gcaption {\n    font-weight: normal;\n    font-size: 9px;\n    text-align: left;\n    white-space: nowrap;\n    top: 1px;\n    position: absolute;\n    top: 2px; }\n  .ggroupcaption,\n  .gcaption {\n    right: -126px; }\n  .gtaskcomplete {\n    float: left;\n    overflow: hidden; }\n  .gtaskcomplete {\n    height: 5px;\n    background-color: #000000;\n    margin-top: 4px;\n    opacity: 0.4;\n    filter: alpha(opacity=40); }\n  .gmilestone {\n    font-size: 14px;\n    position: absolute;\n    top: -2px; }\n  .gmdtop {\n    top: 2px;\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    border-bottom: 5px solid black;\n    border-left: 5px solid transparent;\n    border-top: 5px solid transparent;\n    border-right: 5px solid transparent; }\n  .gmdbottom {\n    top: 2px;\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    border-top: 5px solid black;\n    border-left: 5px solid transparent;\n    border-bottom: 5px solid transparent;\n    border-right: 5px solid transparent; }\n  .ggroupblack,\n  .gtaskblue,\n  .gtaskred,\n  .gtaskgreen,\n  .gtaskyellow,\n  .gtaskpurple,\n  .gtaskpink {\n    height: 13px;\n    filter: alpha(opacity=90);\n    opacity: 0.9;\n    margin-top: 1px; }\n  .ggroupblack {\n    height: 7px;\n    background: #000000;\n    margin-top: 2px; }\n  .ggroupblackendpointleft {\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    top: 2px;\n    border-top: 4px solid black;\n    border-left: 4px solid transparent;\n    border-bottom: 4px solid transparent;\n    border-right: 4px solid transparent;\n    float: left; }\n  .ggroupblackendpointright {\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    top: 2px;\n    border-top: 4px solid black;\n    border-left: 4px solid transparent;\n    border-bottom: 4px solid transparent;\n    border-right: 4px solid transparent;\n    float: right; }\n  .ggroupblackcomplete {\n    float: left;\n    overflow: hidden;\n    height: 3px;\n    filter: alpha(opacity=80);\n    opacity: 0.8;\n    background-color: #777777;\n    margin-top: 2px;\n    margin-bottom: 2px; }\n  .gtaskblue {\n    background: #3a84c3;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #3a84c3 0%, #419ad6 20%, #4bb8f0 40%, #3a8bc2 70%, #26558b 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4bb8f0', endColorstr='#3a84c3', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskred {\n    background: #c43a3a;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #c43a3a 0%, #d34141 20%, #ef4c4c 40%, #c43a3a 70%, #872525 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ef4c4c', endColorstr='#c43a3a', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskgreen {\n    background: #50c13a;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #50c13a 0%, #58d140 20%, #66ed4b 40%, #50c13a 70%, #358425 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66ED4B', endColorstr='#50c13a', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskyellow {\n    background: #f7e438;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #f7e438 0%, #efef37 20%, #ffff3a 40%, #f2ec37 70%, #f1da36 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff3a', endColorstr='#f7e438', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskpurple {\n    background: #c13ac1;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #c13ac1 0%, #d341d3 20%, #ef4cef 40%, #c13ac1 70%, #892689 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ef4cef', endColorstr='#892689', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskpink {\n    background: #f9b1f5;\n    /* Old browsers */\n    background: linear-gradient(to bottom, #f9b1f5 0%, #f7c0f3 20%, #f7caf4 40%, #f9c0f6 70%, #fcaef7 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7caf4', endColorstr='#fcaef7', GradientType=0);\n    /* IE6-9 */ }\n  .gtaskbluecomplete,\n  .gtaskredcomplete,\n  .gtaskgreencomplete,\n  .gtaskyellowcomplete,\n  .gtaskpurplecomplete,\n  .gtaskpinkcomplete {\n    float: left;\n    overflow: hidden;\n    height: 5px;\n    filter: alpha(opacity=40);\n    opacity: 0.4;\n    background-color: #000000;\n    margin-top: 4px; }\n  .glinev {\n    border-left: 1px solid;\n    width: 0px; }\n  .glineh {\n    border-top: 1px solid;\n    height: 0px; }\n  .gDepFS,\n  .gDepSS,\n  .gDepSF,\n  .gDepFF {\n    border-color: #ff0000; }\n  .gDepFSArw,\n  .gDepSSArw {\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    border-bottom: 4px solid transparent;\n    border-left: 4px solid #ff0000;\n    border-top: 4px solid transparent;\n    border-right: 4px solid transparent; }\n  .gDepFFArw,\n  .gDepSFArw {\n    overflow: hidden;\n    width: 0px;\n    height: 0px;\n    border-bottom: 4px solid transparent;\n    border-left: 4px solid transparent;\n    border-top: 4px solid transparent;\n    border-right: 4px solid #ff0000; }\n  .gCurDate {\n    border-color: #0000ff; }\n  div.gtaskbarcontainer {\n    z-index: 1;\n    position: absolute;\n    top: 0px; }\n  .textbar {\n    word-break: break-all;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    width: 40%;\n    display: inline-block; }\n  .JSGanttToolTip {\n    position: absolute;\n    display: block;\n    z-index: 10000; }\n  .JSGanttToolTipcont {\n    font-family: tahoma, arial, verdana;\n    font-size: 10px;\n    display: block;\n    background: #ffffff;\n    color: #656565; }\n  .gTaskInfo {\n    background: #dbecff;\n    width: 400px;\n    border: #656565 1px solid;\n    border-radius: 10px;\n    padding: 4px 6px 4px 6px;\n    float: left; }\n  .gTtTitle {\n    display: block;\n    font-size: 12px;\n    font-weight: bold;\n    color: #404040;\n    margin-left: 4px;\n    margin-bottom: 1em; }\n  .gTaskLabel {\n    font-size: 11px;\n    font-weight: bold;\n    color: #656565;\n    margin-left: 4px; }\n  .gTaskText {\n    position: absolute;\n    left: 90px;\n    padding-top: 1px;\n    font-size: 10px;\n    font-weight: normal;\n    color: #656565; }\n  .gTaskNotes {\n    font-size: 11px;\n    font-weight: normal;\n    color: #323232;\n    padding: 0 15px;\n    display: block; }\n  .gTIn {\n    padding-top: 10px; }\n  .gantt {\n    min-width: 632px;\n    /* 2x LC width */ }\n  .gchartcontainer {\n    /* padding-left: 532px; LC width */\n    line-height: 1;\n    /* Overrides inherited CSS (e.g. from Bootstrap) */\n    display: flex; }\n  .gcontainercol {\n    position: relative; }\n  .glistgrid {\n    min-width: 132px;\n    /* LC width */\n    float: left;\n    /* LC width */\n    padding-right: 0px;\n    padding-left: 0px;\n    padding-bottom: 0px;\n    padding-top: 0px;\n    background-color: #ffffff;\n    overflow: hidden; }\n  .glistlbl {\n    min-width: 132px;\n    /* LC width */\n    float: left;\n    /* LC width */\n    padding-right: 0px;\n    padding-left: 0px;\n    padding-bottom: 0px;\n    padding-top: 0px;\n    background-color: #ffffff;\n    overflow: hidden;\n    flex: none; }\n  .glistlbl,\n  .gchartgrid {\n    display: flex;\n    flex-direction: column; }\n  .glabelfooter {\n    clear: both; }\n  .ggridfooter {\n    clear: both; }\n  .rhscrpad {\n    width: 150px;\n    position: absolute;\n    top: 0px;\n    height: 1px; }\n  .gchartgrid {\n    padding-right: 0px;\n    padding-left: 0px;\n    padding-bottom: 0px;\n    padding-top: 0px;\n    background-color: #ffffff;\n    position: relative;\n    /* overflow: auto; */\n    overflow: unset;\n    overflow-y: auto;\n    min-height: 0%; }\n  .gchartlbl {\n    padding-right: 0px;\n    padding-left: 0px;\n    padding-bottom: 0px;\n    padding-top: 0px;\n    background-color: #ffffff;\n    position: relative;\n    overflow: hidden;\n    flex: none; }\n  .gantt {\n    _height: 100%; }\n  div .gantt {\n    /* _width: 1064px; ie6 fixed width */ }\n  div.gchartlbl,\n  div.gchartgrid {\n    /* _width: 532px; */ }\n  div.glistlbl,\n  div.glistgrid {\n    *right: 0px;\n    /* ie7 pulls the content too far left with the negative margin */\n    _right: 532px;\n    /* but ie6 fixed width needs this */\n    _margin-left: -532px;\n    /* ie6 fixed width */\n    float: left; }\n  div.gchartgrid {\n    *padding-bottom: 20px;\n    *overflow-y: hidden; }\n  td.gmajorheading div {\n    *overflow: hidden; }\n  td.gspanning div {\n    *overflow: hidden; }\n  .ggroupblackendpointleft {\n    _border-top: 4px solid black;\n    _border-left: 4px solid pink;\n    _border-bottom: 4px solid pink;\n    _border-right: 4px solid pink;\n    _filter: chroma(color=pink); }\n  .ggroupblackendpointright {\n    _border-top: 4px solid black;\n    _border-left: 4px solid pink;\n    _border-bottom: 4px solid pink;\n    _border-right: 4px solid pink;\n    _filter: chroma(color=pink); }\n  .gmdtop {\n    _border-left: 5px solid pink;\n    _border-top: 5px solid pink;\n    _border-right: 5px solid pink;\n    _filter: chroma(color=pink); }\n  .gmdbottom {\n    _border-left: 5px solid pink;\n    _border-bottom: 5px solid pink;\n    _border-right: 5px solid pink;\n    _filter: chroma(color=pink); }\n  .gDepFSArw,\n  .gDepSSArw {\n    _border-bottom: 4px solid pink;\n    _border-top: 4px solid pink;\n    _border-right: 4px solid pink;\n    _filter: chroma(color=pink); }\n  .gDepFFArw,\n  .gDepSFArw {\n    _border-bottom: 4px solid pink;\n    _border-left: 4px solid pink;\n    _border-top: 4px solid pink;\n    _filter: chroma(color=pink); }\n  .glinediv {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    z-index: 1px; }\n  .gantt-inputtable {\n    max-width: 100%;\n    max-height: 16px; }\n  .gadditional {\n    border: #efefef 1px solid; }\n  .gadditional,\n  .gres,\n  .gdur,\n  .gcomp,\n  .gcost {\n    text-align: center;\n    width: 70px;\n    max-width: 70px;\n    min-width: 70px;\n    font-size: 10px; }\n  @media print {\n     {\n      /* All your print styles go here */\n      /* Hide scrollbar for Chrome, Safari and Opera */\n      /* Hide scrollbar for IE, Edge and Firefox */\n      /* Hide tool-tip */\n      /* This is the default css, injected by the JSGantt.printChart(width,height); function -->\n  @page {\n    size: ${width}mm ${height}mm;\n  }\n\n  .gchartcontainer {\n    width: ${width}mm;\n  }\n  <-- This will be injected by the JSGantt.printChart() function */ }\n      html,\n      .gchartgrid {\n        overflow: unset !important; }\n      .glistgrid {\n        float: none !important; }\n      .gchartcontainer *::-webkit-scrollbar {\n        display: none; }\n      .gchartcontainer * {\n        -ms-overflow-style: none;\n        /* IE and Edge */\n        scrollbar-width: none;\n        /* Firefox */ }\n      .JSGanttToolTip {\n        display: none !important; } }\n  .gmain {\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n    /* Allow resize */\n    resize: horizontal; }\n  .gmainright {\n    overflow: hidden;\n    flex: 1 1 auto; }\n  .gmainleft {\n    overflow: hidden;\n    flex: 0 0 20%;\n    min-width: 220px;\n    /* Allow side to grow and shrink */\n    flex: 1 0 auto; }\n  .gtasktableh tr,\n  .gcharttable tr,\n  .gcharttableh tr,\n  .gtasktable tr {\n    height: 22px !important; }\n  .gtasktableouterwrapper {\n    overflow: hidden; }\n  .gtasktablewrapper {\n    overflow-y: scroll;\n    flex: auto;\n    height: 100%; }\n  .chartgrid {\n    overflow: auto;\n    flex: auto; }\n  @media print {\n    .ggroupblack {\n      height: 0px;\n      border-top: 7px solid;\n      border-color: #000000; }\n    .gtaskblue {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #3a84c3; }\n    .gtaskred {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #c43a3a; }\n    .gtaskgreen {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #50c13a; }\n    .gtaskyellow {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #f7e438; }\n    .gtaskpurple {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #c13ac1; }\n    .gtaskpink {\n      height: 0px;\n      border-top: 13px solid;\n      border-color: #f9b1f5; }\n    .gtaskbluecomplete,\n    .gtaskredcomplete,\n    .gtaskgreencomplete,\n    .gtaskyellowcomplete,\n    .gtaskpurplecomplete,\n    .gtaskpinkcomplete {\n      height: 0px;\n      filter: alpha(opacity=40);\n      opacity: 0.4;\n      margin-top: -9px;\n      border-top: 5px solid;\n      border-color: #000000; }\n    .ggroupblackcomplete {\n      height: 0px;\n      filter: alpha(opacity=80);\n      opacity: 0.8;\n      margin-top: -5px;\n      border-top: 3px solid;\n      border-color: #777777; }\n    .gmainright,\n    .gmainleft {\n      overflow: hidden;\n      width: auto; }\n    table {\n      page-break-after: auto; }\n    tr {\n      page-break-inside: avoid;\n      page-break-after: auto; }\n    td {\n      page-break-inside: avoid;\n      page-break-after: auto; }\n    thead {\n      display: table-header-group; }\n    tfoot {\n      display: table-footer-group; } }\n  .frame::-webkit-scrollbar {\n    -webkit-appearance: none; }\n  .frame::-webkit-scrollbar:vertical {\n    width: 11px; }\n  .frame::-webkit-scrollbar:horizontal {\n    height: 11px; }\n  .frame::-webkit-scrollbar-thumb {\n    border-radius: 8px;\n    border: 2px solid white;\n    /* should match background, can't be transparent */\n    background-color: rgba(0, 0, 0, 0.5); }\n  .frame::-webkit-scrollbar-track {\n    background-color: #fff;\n    border-radius: 8px; }\n  .gscrollbar-calculation-container {\n    visibility: hidden;\n    overflow: scroll;\n    -ms-overflow-style: scrollbar;\n    display: block; }\n\n.styles_test__3MEaA {\n  display: inline-block;\n  margin: 2em auto;\n  border: 2px solid #000;\n  font-size: 2em; }\n";
 styleInject(css);
 
 var JSGanttComponent = /** @class */ (function (_super) {
@@ -5569,7 +5880,6 @@ var JSGanttComponent = /** @class */ (function (_super) {
         return _this;
     }
     JSGanttComponent.prototype.componentDidMount = function () {
-        alert("daniel");
         this.makeChart();
     };
     JSGanttComponent.prototype.componentDidUpdate = function () {
